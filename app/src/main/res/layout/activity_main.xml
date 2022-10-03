@@ -131,7 +131,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <HorizontalScrollView
-        android:id="@+id/alpabetScrollView"
+        android:id="@+id/alphabetScrollView"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_marginTop="384dp"
@@ -149,6 +149,7 @@
                 android:id="@+id/alphabetA"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:onClick="onClick"
                 android:text="A">
 
             </Button>
@@ -158,6 +159,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClick"
                 android:text="B">
 
             </Button>
@@ -167,6 +169,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClick"
                 android:text="C">
 
             </Button>
@@ -176,6 +179,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClick"
                 android:text="D">
 
             </Button>
@@ -185,6 +189,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClick"
                 android:text="E">
 
             </Button>
@@ -194,6 +199,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClick"
                 android:text="F">
 
             </Button>
@@ -203,6 +209,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClick"
                 android:text="G">
 
             </Button>
@@ -212,6 +219,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClick"
                 android:text="H">
 
             </Button>
@@ -221,6 +229,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClick"
                 android:text="I">
 
             </Button>
@@ -230,6 +239,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClick"
                 android:text="J">
 
             </Button>
@@ -239,6 +249,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClick"
                 android:text="K">
 
             </Button>
@@ -248,6 +259,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClick"
                 android:text="L">
 
             </Button>
@@ -257,6 +269,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClick"
                 android:text="M">
 
             </Button>
@@ -266,6 +279,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClick"
                 android:text="N">
 
             </Button>
@@ -275,6 +289,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClick"
                 android:text="O">
 
             </Button>
@@ -284,6 +299,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClick"
                 android:text="P">
 
             </Button>
@@ -293,6 +309,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClick"
                 android:text="Q">
 
             </Button>
@@ -302,6 +319,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClick"
                 android:text="R">
 
             </Button>
@@ -311,6 +329,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClick"
                 android:text="S">
 
             </Button>
@@ -320,6 +339,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClick"
                 android:text="T">
 
             </Button>
@@ -329,6 +349,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClick"
                 android:text="U">
 
             </Button>
@@ -338,6 +359,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClick"
                 android:text="V">
 
             </Button>
@@ -347,6 +369,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClick"
                 android:text="W">
 
             </Button>
@@ -356,6 +379,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClick"
                 android:text="X">
 
             </Button>
@@ -365,6 +389,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClick"
                 android:text="Y">
 
             </Button>
@@ -374,6 +399,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="onClick"
                 android:text="Z">
 
             </Button>
@@ -391,7 +417,7 @@
         android:text="Reset"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/hangman_layout" /> <!-- End of Game_layout -->
+        app:layout_constraintTop_toTopOf="@id/hangman_layout" />
 
 
 
