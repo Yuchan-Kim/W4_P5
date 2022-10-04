@@ -12,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    String randomWord = "APPLE";
 
     ImageView hangman;
     TextView firstLetter;
@@ -32,84 +31,9 @@ public class MainActivity extends AppCompatActivity {
     String[] answerArr = new String[5];
     int correctAnsEntered = 0;
     int wrongAnsEntered = 0;
-
-
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        hangman = (ImageView) findViewById(R.id.hangman_view);
-        firstLetter= (TextView) findViewById(R.id.letter1);
-        secondLetter= (TextView) findViewById(R.id.letter2);
-        thirdLetter= (TextView) findViewById(R.id.letter3);
-        fourthLetter= (TextView) findViewById(R.id.letter4);
-        lastLetter= (TextView) findViewById(R.id.letter5);
-
-
-
-
-        //initial setting
-        String ansCopy = randomWord;
-        for (int i = 0; i < ansCopy.length(); i++){
-            if (ansCopy != ""){
-                answerArr[i] = ansCopy.substring(0);
-            }else {
-                answerArr[i] = "";
-            }
-        }
-        hangman.setImageResource(R.drawable.beginning);
-
-
-
-        reset = (Button) findViewById(R.id.resetBnt);
-        reset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                hangman.setImageResource(R.drawable.beginning);
-                correctAnsEntered = 0;
-                wrongAnsEntered = 0;
-                firstLetter.setText("");
-                secondLetter.setText("");
-                thirdLetter.setText("");
-                fourthLetter.setText("");
-                lastLetter.setText("");
-                setAllChange(true);
-            }
-        });
-
-
-    }; //End of onCreate
+    boolean fixCheck = false;
 
     public void setAllChange (Boolean up){
-        alpA = (Button) findViewById(R.id.alphabetA);
-        alpB = (Button) findViewById(R.id.alphabetB);
-        alpC = (Button) findViewById(R.id.alphabetC);
-        alpD = (Button) findViewById(R.id.alphabetD);
-        alpE = (Button) findViewById(R.id.alphabetE);
-        alpF = (Button) findViewById(R.id.alphabetF);
-        alpG = (Button) findViewById(R.id.alphabetG);
-        alpH = (Button) findViewById(R.id.alphabetH);
-        alpI = (Button) findViewById(R.id.alphabetI);
-        alpJ = (Button) findViewById(R.id.alphabetJ);
-        alpK = (Button) findViewById(R.id.alphabetK);
-        alpL = (Button) findViewById(R.id.alphabetL);
-        alpM = (Button) findViewById(R.id.alphabetM);
-        alpN = (Button) findViewById(R.id.alphabetN);
-        alpO = (Button) findViewById(R.id.alphabetO);
-        alpP = (Button) findViewById(R.id.alphabetP);
-        alpQ = (Button) findViewById(R.id.alphabetQ);
-        alpR = (Button) findViewById(R.id.alphabetR);
-        alpS = (Button) findViewById(R.id.alphabetS);
-        alpT = (Button) findViewById(R.id.alphabetT);
-        alpU = (Button) findViewById(R.id.alphabetU);
-        alpV = (Button) findViewById(R.id.alphabetV);
-        alpW = (Button) findViewById(R.id.alphabetW);
-        alpX = (Button) findViewById(R.id.alphabetX);
-        alpY = (Button) findViewById(R.id.alphabetY);
-        alpZ = (Button) findViewById(R.id.alphabetZ);
-
-
         if (up){
             alpA.setEnabled(true);
             alpB.setEnabled(true);
@@ -141,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setCorrectAnsEntered (){
-        if (correctAnsEntered == randomWord.length()) {
+        if (correctAnsEntered == 5) {
             Toast.makeText(this, "Game Clear!", Toast.LENGTH_SHORT).show();
             //Move onto next page
         }
@@ -161,27 +85,62 @@ public class MainActivity extends AppCompatActivity {
             hangman.setImageResource(R.drawable.sixth);
         }else if (wrongAnsEntered <= 6){
             hangman.setImageResource(R.drawable.seventh);
-            Toast.makeText(this, "Game Failed! Press Reset button.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Game Failed! Press Reset button.", Toast.LENGTH_SHORT).show();
+            hangman.setImageResource(R.drawable.beginning);
+            correctAnsEntered = 0;
+            wrongAnsEntered = 0;
+            firstLetter.setText("");
+            secondLetter.setText("");
+            thirdLetter.setText("");
+            fourthLetter.setText("");
+            lastLetter.setText("");
+            setAllChange(true);
         }
     }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-
-    @SuppressLint("NonConstantResourceId")
-    public void onClick(View v) {
-        boolean fixCheck = false;
-
+        hangman = (ImageView) findViewById(R.id.hangman_view);
         firstLetter= (TextView) findViewById(R.id.letter1);
         secondLetter= (TextView) findViewById(R.id.letter2);
         thirdLetter= (TextView) findViewById(R.id.letter3);
         fourthLetter= (TextView) findViewById(R.id.letter4);
         lastLetter= (TextView) findViewById(R.id.letter5);
 
-        switch(v.getId()){
-            case R.id.alphabetA:
+        //initial setting
+        answerArr[0] = "A";
+        answerArr[1] = "P";
+        answerArr[2] = "P";
+        answerArr[3] = "L";
+        answerArr[4] = "E";
 
+
+        reset = (Button) findViewById(R.id.resetBnt);
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                hangman.setImageResource(R.drawable.beginning);
+                correctAnsEntered = 0;
+                wrongAnsEntered = 0;
+                firstLetter.setText("");
+                secondLetter.setText("");
+                thirdLetter.setText("");
+                fourthLetter.setText("");
+                lastLetter.setText("");
+                setAllChange(true);
+            }
+        });
+
+        //Alphabets
+        alpA = (Button) findViewById(R.id.alphabetA);
+        alpA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <answerArr.length; i++){
+                for (int i = 0; i < 5; i++){
                     if (answerArr[i].equals("A")){
 
                         if (i == 0) {
@@ -202,24 +161,26 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (fixCheck){
-                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
                     fixCheck = false;
-                    setWrongAnsEntered();
-                }else {
-                    Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-                    wrongAnsEntered += 1;
                     setCorrectAnsEntered();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
+                    wrongAnsEntered += 1;
+                    setWrongAnsEntered();
                 }
 
-
-                alpA = findViewById(R.id.alphabetA);
                 alpA.setEnabled(false);
+            }
+        });
 
 
-
-            case R.id.alphabetB:
+        alpB = (Button) findViewById(R.id.alphabetB);
+        alpB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <answerArr.length; i++){
+                for (int i = 0; i < 5; i++){
                     if (answerArr[i].equals("B")){
 
                         if (i == 0) {
@@ -240,22 +201,26 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (fixCheck){
-                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
                     fixCheck = false;
-                    setWrongAnsEntered();
-                }else {
-                    Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-                    wrongAnsEntered += 1;
                     setCorrectAnsEntered();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
+                    wrongAnsEntered += 1;
+                    setWrongAnsEntered();
                 }
 
-
-                alpB = findViewById(R.id.alphabetB);
                 alpB.setEnabled(false);
+            }
+        });
 
-            case R.id.alphabetC:
+
+        alpC = (Button) findViewById(R.id.alphabetC);
+        alpC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <answerArr.length; i++){
+                for (int i = 0; i <5; i++){
                     if (answerArr[i].equals("C")){
 
                         if (i == 0) {
@@ -276,22 +241,27 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (fixCheck){
-                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
                     fixCheck = false;
-                    setWrongAnsEntered();
-                }else {
-                    Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-                    wrongAnsEntered += 1;
                     setCorrectAnsEntered();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
+                    wrongAnsEntered += 1;
+                    setWrongAnsEntered();
                 }
 
-
-                alpC = findViewById(R.id.alphabetC);
                 alpC.setEnabled(false);
 
-            case R.id.alphabetD:
+            }
+        });
+
+
+        alpD = (Button) findViewById(R.id.alphabetD);
+        alpD.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <answerArr.length; i++){
+                for (int i = 0; i <5; i++){
                     if (answerArr[i].equals("D")){
 
                         if (i == 0) {
@@ -312,22 +282,29 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (fixCheck){
-                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
                     fixCheck = false;
-                    setWrongAnsEntered();
-                }else {
-                    Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-                    wrongAnsEntered += 1;
                     setCorrectAnsEntered();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
+                    wrongAnsEntered += 1;
+                    setWrongAnsEntered();
                 }
 
 
-                alpD = findViewById(R.id.alphabetD);
+
                 alpD.setEnabled(false);
 
-            case R.id.alphabetE:
+            }
+        });
+
+
+        alpE = (Button) findViewById(R.id.alphabetE);
+        alpE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <answerArr.length; i++){
+                for (int i = 0; i <5; i++){
                     if (answerArr[i].equals("E")){
 
                         if (i == 0) {
@@ -348,22 +325,29 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (fixCheck){
-                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
                     fixCheck = false;
-                    setWrongAnsEntered();
-                }else {
-                    Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-                    wrongAnsEntered += 1;
                     setCorrectAnsEntered();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
+                    wrongAnsEntered += 1;
+                    setWrongAnsEntered();
                 }
 
 
-                alpE = findViewById(R.id.alphabetE);
+
                 alpE.setEnabled(false);
 
-            case R.id.alphabetF:
+            }
+        });
+
+
+        alpF = (Button) findViewById(R.id.alphabetF);
+        alpF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <answerArr.length; i++){
+                for (int i = 0; i <5; i++){
                     if (answerArr[i].equals("F")){
 
                         if (i == 0) {
@@ -384,22 +368,27 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (fixCheck){
-                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
                     fixCheck = false;
-                    setWrongAnsEntered();
-                }else {
-                    Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-                    wrongAnsEntered += 1;
                     setCorrectAnsEntered();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
+                    wrongAnsEntered += 1;
+                    setWrongAnsEntered();
                 }
 
-
-                alpF = findViewById(R.id.alphabetF);
                 alpF.setEnabled(false);
 
-            case R.id.alphabetG:
+            }
+        });
+
+
+        alpG = (Button) findViewById(R.id.alphabetG);
+        alpG.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <answerArr.length; i++){
+                for (int i = 0; i <5; i++){
                     if (answerArr[i].equals("G")){
 
                         if (i == 0) {
@@ -420,22 +409,27 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (fixCheck){
-                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
                     fixCheck = false;
-                    setWrongAnsEntered();
-                }else {
-                    Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-                    wrongAnsEntered += 1;
                     setCorrectAnsEntered();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
+                    wrongAnsEntered += 1;
+                    setWrongAnsEntered();
                 }
 
-
-                alpG = findViewById(R.id.alphabetG);
                 alpG.setEnabled(false);
 
-            case R.id.alphabetH:
+            }
+        });
+
+
+        alpH = (Button) findViewById(R.id.alphabetH);
+        alpH.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <answerArr.length; i++){
+                for (int i = 0; i <5; i++){
                     if (answerArr[i].equals("H")){
 
                         if (i == 0) {
@@ -456,22 +450,27 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (fixCheck){
-                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
                     fixCheck = false;
-                    setWrongAnsEntered();
-                }else {
-                    Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-                    wrongAnsEntered += 1;
                     setCorrectAnsEntered();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
+                    wrongAnsEntered += 1;
+                    setWrongAnsEntered();
                 }
 
-
-                alpH = findViewById(R.id.alphabetH);
                 alpH.setEnabled(false);
 
-            case R.id.alphabetI:
+            }
+        });
+
+
+        alpI = (Button) findViewById(R.id.alphabetI);
+        alpI.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <answerArr.length; i++){
+                for (int i = 0; i <5; i++){
                     if (answerArr[i].equals("I")){
 
                         if (i == 0) {
@@ -482,7 +481,7 @@ public class MainActivity extends AppCompatActivity {
                             thirdLetter.setText("I");
                         }else if (i == 3) {
                             fourthLetter.setText("I");
-                        }else if (i == 4) {
+                        }else {
                             lastLetter.setText("I");
                         }
 
@@ -492,22 +491,27 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (fixCheck){
-                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
                     fixCheck = false;
-                    setWrongAnsEntered();
-                }else {
-                    Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-                    wrongAnsEntered += 1;
                     setCorrectAnsEntered();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
+                    wrongAnsEntered += 1;
+                    setWrongAnsEntered();
                 }
 
-
-                alpI = findViewById(R.id.alphabetI);
                 alpI.setEnabled(false);
 
-            case R.id.alphabetJ:
+            }
+        });
+
+
+        alpJ = (Button) findViewById(R.id.alphabetJ);
+        alpJ.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <answerArr.length; i++){
+                for (int i = 0; i <5; i++){
                     if (answerArr[i].equals("J")){
 
                         if (i == 0) {
@@ -528,22 +532,27 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (fixCheck){
-                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
                     fixCheck = false;
-                    setWrongAnsEntered();
-                }else {
-                    Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-                    wrongAnsEntered += 1;
                     setCorrectAnsEntered();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
+                    wrongAnsEntered += 1;
+                    setWrongAnsEntered();
                 }
 
-
-                alpJ = findViewById(R.id.alphabetJ);
                 alpJ.setEnabled(false);
 
-            case R.id.alphabetK:
+            }
+        });
+
+
+        alpK = (Button) findViewById(R.id.alphabetK);
+        alpK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <answerArr.length; i++){
+                for (int i = 0; i <5; i++){
                     if (answerArr[i].equals("K")){
 
                         if (i == 0) {
@@ -564,22 +573,27 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (fixCheck){
-                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
                     fixCheck = false;
-                    setWrongAnsEntered();
-                }else {
-                    Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-                    wrongAnsEntered += 1;
                     setCorrectAnsEntered();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
+                    wrongAnsEntered += 1;
+                    setWrongAnsEntered();
                 }
 
-
-                alpK = findViewById(R.id.alphabetK);
                 alpK.setEnabled(false);
 
-            case R.id.alphabetL:
+            }
+        });
+
+
+        alpL = (Button) findViewById(R.id.alphabetL);
+        alpL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <answerArr.length; i++){
+                for (int i = 0; i <5; i++){
                     if (answerArr[i].equals("L")){
 
                         if (i == 0) {
@@ -600,22 +614,27 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (fixCheck){
-                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
                     fixCheck = false;
-                    setWrongAnsEntered();
-                }else {
-                    Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-                    wrongAnsEntered += 1;
                     setCorrectAnsEntered();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
+                    wrongAnsEntered += 1;
+                    setWrongAnsEntered();
                 }
 
-
-                alpL = findViewById(R.id.alphabetL);
                 alpL.setEnabled(false);
 
-            case R.id.alphabetM:
+            }
+        });
+
+
+        alpM = (Button) findViewById(R.id.alphabetM);
+        alpM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <answerArr.length; i++){
+                for (int i = 0; i <5; i++){
                     if (answerArr[i].equals("M")){
 
                         if (i == 0) {
@@ -636,22 +655,27 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (fixCheck){
-                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
                     fixCheck = false;
-                    setWrongAnsEntered();
-                }else {
-                    Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-                    wrongAnsEntered += 1;
                     setCorrectAnsEntered();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
+                    wrongAnsEntered += 1;
+                    setWrongAnsEntered();
                 }
 
-
-                alpM = findViewById(R.id.alphabetM);
                 alpM.setEnabled(false);
 
-            case R.id.alphabetN:
+            }
+        });
+
+
+        alpN = (Button) findViewById(R.id.alphabetN);
+        alpN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <answerArr.length; i++){
+                for (int i = 0; i <5; i++){
                     if (answerArr[i].equals("N")){
 
                         if (i == 0) {
@@ -672,22 +696,27 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (fixCheck){
-                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
                     fixCheck = false;
-                    setWrongAnsEntered();
-                }else {
-                    Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-                    wrongAnsEntered += 1;
                     setCorrectAnsEntered();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
+                    wrongAnsEntered += 1;
+                    setWrongAnsEntered();
                 }
 
-
-                alpN = findViewById(R.id.alphabetN);
                 alpN.setEnabled(false);
 
-            case R.id.alphabetO:
+            }
+        });
+
+
+        alpO = (Button) findViewById(R.id.alphabetO);
+        alpO.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <answerArr.length; i++){
+                for (int i = 0; i <5; i++){
                     if (answerArr[i].equals("O")){
 
                         if (i == 0) {
@@ -708,22 +737,27 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (fixCheck){
-                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
                     fixCheck = false;
-                    setWrongAnsEntered();
-                }else {
-                    Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-                    wrongAnsEntered += 1;
                     setCorrectAnsEntered();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
+                    wrongAnsEntered += 1;
+                    setWrongAnsEntered();
                 }
 
-
-                alpO = findViewById(R.id.alphabetO);
                 alpO.setEnabled(false);
 
-            case R.id.alphabetP:
+            }
+        });
+
+
+        alpP = (Button) findViewById(R.id.alphabetP);
+        alpP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <answerArr.length; i++){
+                for (int i = 0; i <5; i++){
                     if (answerArr[i].equals("P")){
 
                         if (i == 0) {
@@ -744,22 +778,27 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (fixCheck){
-                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
                     fixCheck = false;
-                    setWrongAnsEntered();
-                }else {
-                    Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-                    wrongAnsEntered += 1;
                     setCorrectAnsEntered();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
+                    wrongAnsEntered += 1;
+                    setWrongAnsEntered();
                 }
 
-
-                alpP = findViewById(R.id.alphabetP);
                 alpP.setEnabled(false);
 
-            case R.id.alphabetQ:
+            }
+        });
+
+
+        alpQ = (Button) findViewById(R.id.alphabetQ);
+        alpQ.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <answerArr.length; i++){
+                for (int i = 0; i <5; i++){
                     if (answerArr[i].equals("Q")){
 
                         if (i == 0) {
@@ -780,22 +819,29 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (fixCheck){
-                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
                     fixCheck = false;
-                    setWrongAnsEntered();
-                }else {
-                    Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-                    wrongAnsEntered += 1;
                     setCorrectAnsEntered();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
+                    wrongAnsEntered += 1;
+                    setWrongAnsEntered();
                 }
 
 
-                alpQ = findViewById(R.id.alphabetQ);
+
                 alpQ.setEnabled(false);
 
-            case R.id.alphabetR:
+            }
+        });
+
+
+        alpR = (Button) findViewById(R.id.alphabetR);
+        alpR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <answerArr.length; i++){
+                for (int i = 0; i <5; i++){
                     if (answerArr[i].equals("R")){
 
                         if (i == 0) {
@@ -816,22 +862,27 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (fixCheck){
-                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
                     fixCheck = false;
-                    setWrongAnsEntered();
-                }else {
-                    Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-                    wrongAnsEntered += 1;
                     setCorrectAnsEntered();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
+                    wrongAnsEntered += 1;
+                    setWrongAnsEntered();
                 }
 
-
-                alpR = findViewById(R.id.alphabetR);
                 alpR.setEnabled(false);
 
-            case R.id.alphabetS:
+            }
+        });
+
+
+        alpS = (Button) findViewById(R.id.alphabetS);
+        alpS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <answerArr.length; i++){
+                for (int i = 0; i <5; i++){
                     if (answerArr[i].equals("S")){
 
                         if (i == 0) {
@@ -852,22 +903,27 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (fixCheck){
-                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
                     fixCheck = false;
-                    setWrongAnsEntered();
-                }else {
-                    Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-                    wrongAnsEntered += 1;
                     setCorrectAnsEntered();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
+                    wrongAnsEntered += 1;
+                    setWrongAnsEntered();
                 }
 
-
-                alpS = findViewById(R.id.alphabetS);
                 alpS.setEnabled(false);
 
-            case R.id.alphabetT:
+            }
+        });
+
+
+        alpT = (Button) findViewById(R.id.alphabetT);
+        alpT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <answerArr.length; i++){
+                for (int i = 0; i <5; i++){
                     if (answerArr[i].equals("T")){
 
                         if (i == 0) {
@@ -888,22 +944,27 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (fixCheck){
-                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
                     fixCheck = false;
-                    setWrongAnsEntered();
-                }else {
-                    Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-                    wrongAnsEntered += 1;
                     setCorrectAnsEntered();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
+                    wrongAnsEntered += 1;
+                    setWrongAnsEntered();
                 }
 
-
-                alpT = findViewById(R.id.alphabetT);
                 alpT.setEnabled(false);
 
-            case R.id.alphabetU:
+            }
+        });
+
+
+        alpU = (Button) findViewById(R.id.alphabetU);
+        alpU.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <answerArr.length; i++){
+                for (int i = 0; i <5; i++){
                     if (answerArr[i].equals("U")){
 
                         if (i == 0) {
@@ -924,22 +985,27 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (fixCheck){
-                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
                     fixCheck = false;
-                    setWrongAnsEntered();
-                }else {
-                    Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-                    wrongAnsEntered += 1;
                     setCorrectAnsEntered();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
+                    wrongAnsEntered += 1;
+                    setWrongAnsEntered();
                 }
 
-
-                alpU = findViewById(R.id.alphabetU);
                 alpU.setEnabled(false);
 
-            case R.id.alphabetV:
+            }
+        });
+
+
+        alpV = (Button) findViewById(R.id.alphabetV);
+        alpV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <answerArr.length; i++){
+                for (int i = 0; i <5; i++){
                     if (answerArr[i].equals("V")){
 
                         if (i == 0) {
@@ -960,22 +1026,27 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (fixCheck){
-                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
                     fixCheck = false;
-                    setWrongAnsEntered();
-                }else {
-                    Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-                    wrongAnsEntered += 1;
                     setCorrectAnsEntered();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
+                    wrongAnsEntered += 1;
+                    setWrongAnsEntered();
                 }
 
-
-                alpV = findViewById(R.id.alphabetV);
                 alpV.setEnabled(false);
 
-            case R.id.alphabetW:
+            }
+        });
+
+
+        alpW = (Button) findViewById(R.id.alphabetW);
+        alpW.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <answerArr.length; i++){
+                for (int i = 0; i <5; i++){
                     if (answerArr[i].equals("W")){
 
                         if (i == 0) {
@@ -996,58 +1067,27 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (fixCheck){
-                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
                     fixCheck = false;
-                    setWrongAnsEntered();
-                }else {
-                    Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-                    wrongAnsEntered += 1;
                     setCorrectAnsEntered();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
+                    wrongAnsEntered += 1;
+                    setWrongAnsEntered();
                 }
 
-
-                alpW = findViewById(R.id.alphabetW);
                 alpW.setEnabled(false);
 
-            case R.id.alphabetX:
+            }
+        });
+
+
+        alpY = (Button) findViewById(R.id.alphabetY);
+        alpY.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <answerArr.length; i++){
-                    if (answerArr[i].equals("X")){
-
-                        if (i == 0) {
-                            firstLetter.setText("X");
-                        }else if (i == 1){
-                            secondLetter.setText("X");
-                        }else if (i == 2) {
-                            thirdLetter.setText("X");
-                        }else if (i == 3) {
-                            fourthLetter.setText("X");
-                        }else if (i == 4) {
-                            lastLetter.setText("X");
-                        }
-
-                        fixCheck = true;
-                        correctAnsEntered += 1;
-                    }
-                }
-
-                if (fixCheck){
-                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
-                    fixCheck = false;
-                    setWrongAnsEntered();
-                }else {
-                    Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-                    wrongAnsEntered += 1;
-                    setCorrectAnsEntered();
-                }
-
-
-                alpX = findViewById(R.id.alphabetX);
-                alpX.setEnabled(false);
-
-            case R.id.alphabetY:
-                //Count number of the same alphabet occurred.
-                for (int i = 0; i <answerArr.length; i++){
+                for (int i = 0; i <5; i++){
                     if (answerArr[i].equals("Y")){
 
                         if (i == 0) {
@@ -1068,22 +1108,68 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (fixCheck){
-                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
                     fixCheck = false;
-                    setWrongAnsEntered();
-                }else {
-                    Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-                    wrongAnsEntered += 1;
                     setCorrectAnsEntered();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
+                    wrongAnsEntered += 1;
+                    setWrongAnsEntered();
                 }
 
-
-                alpY = findViewById(R.id.alphabetY);
                 alpY.setEnabled(false);
 
-            case R.id.alphabetZ:
+            }
+        });
+
+
+        alpX = (Button) findViewById(R.id.alphabetX);
+        alpX.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <answerArr.length; i++){
+                for (int i = 0; i <5; i++){
+                    if (answerArr[i].equals("X")){
+
+                        if (i == 0) {
+                            firstLetter.setText("X");
+                        }else if (i == 1){
+                            secondLetter.setText("X");
+                        }else if (i == 2) {
+                            thirdLetter.setText("X");
+                        }else if (i == 3) {
+                            fourthLetter.setText("X");
+                        }else if (i == 4) {
+                            lastLetter.setText("X");
+                        }
+
+                        fixCheck = true;
+                        correctAnsEntered += 1;
+                    }
+                }
+
+                if (fixCheck){
+                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
+                    fixCheck = false;
+                    setCorrectAnsEntered();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
+                    wrongAnsEntered += 1;
+                    setWrongAnsEntered();
+                }
+
+                alpX.setEnabled(false);
+
+            }
+        });
+
+
+        alpZ = (Button) findViewById(R.id.alphabetZ);
+        alpZ.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Count number of the same alphabet occurred.
+                for (int i = 0; i <5; i++){
                     if (answerArr[i].equals("Z")){
 
                         if (i == 0) {
@@ -1104,22 +1190,21 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (fixCheck){
-                    Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
                     fixCheck = false;
-                    setWrongAnsEntered();
-                }else {
-                    Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-                    wrongAnsEntered += 1;
                     setCorrectAnsEntered();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
+                    wrongAnsEntered += 1;
+                    setWrongAnsEntered();
                 }
 
-
-                alpZ = findViewById(R.id.alphabetZ);
                 alpZ.setEnabled(false);
 
-        } //End of onCLick - Switch
+            }
+        });
 
-    }// End of onCLick
+    }; //End of onCreate
 
 
-}
+} // End of Class
