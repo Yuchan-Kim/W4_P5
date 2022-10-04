@@ -393,9 +393,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/hangman_layout" />
 
+    <Button
+        android:id="@+id/hintBnt"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        tools:layout_editor_absoluteX="73dp"
+        tools:layout_editor_absoluteY="640dp" />
 
-
-
+    <TextView
+        android:id="@+id/hintTextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        tools:layout_editor_absoluteX="70dp"
+        tools:layout_editor_absoluteY="661dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout> <!-- End of Game_layout -->

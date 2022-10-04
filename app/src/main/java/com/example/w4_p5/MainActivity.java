@@ -4,12 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,16 +26,27 @@ public class MainActivity extends AppCompatActivity {
     //Reset Button
     Button reset;
 
+
+    TextView hintTV;
+
     //List of Alphabet buttons
     Button alpA,alpB,alpC,alpD,alpE,alpF,alpG,alpH,alpI,alpJ,alpK,alpL,alpM,alpN,alpO,alpP,alpQ,alpR,alpS,alpT,alpU,alpV,alpW,alpX,alpY,alpZ;
+
+
+    Button hint;
+
 
 
 
     String[] answerArr = new String[5];
     int[] userinput = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    int[] ansCode = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     int correctAnsEntered = 0;
     int wrongAnsEntered = 0;
+    int hintCount = 0;
     boolean fixCheck = false;
+
+
 
     public void setBtn (int command){
         if (command == 0) {
@@ -114,14 +128,144 @@ public class MainActivity extends AppCompatActivity {
             alpY.setEnabled(false);
         }else if (command == 26) {
             alpZ.setEnabled(false);
+        }else if (command == 100){
+            int restCount = 0;
+            for (int i = 0; i < userinput.length; i++){
+                if (userinput[i] != 1){
+                    restCount += 1;
+                }
+            }
+            restCount = restCount/2;
+            Random random = new Random();
+            while (restCount != 0){
+                int randNum = random.nextInt(26)+1;
+                if (userinput[randNum-1] != 1 && ansCode[randNum-1] != 1){
+                    setBtn(randNum);
+                    userinput[randNum-1] = 1;
+                    restCount -= 1;
+                }
+            }
+        }else if (command == 101){
+            for (int i =0; i < userinput.length; i++){
+                if (i == 0 && ansCode[i] == 1 && userinput[i] == 0){
+                    for (int j = 0; j < 5; j++){
+                        if (answerArr[j].equals("A")){
+
+                            if (j == 0) {
+                                firstLetter.setText("A");
+                            }else if (j == 1){
+                                secondLetter.setText("A");
+                            }else if (j == 2) {
+                                thirdLetter.setText("A");
+                            }else if (j == 3) {
+                                fourthLetter.setText("A");
+                            }else if (j == 4) {
+                                lastLetter.setText("A");
+                            }
+                            correctAnsEntered += 1;
+                            setCorrectAnsEntered();
+                        }
+                    }
+                    userinput[0] = 1;
+                    setBtn(1);
+                }
+                if (i == 4 && ansCode[i] == 1 && userinput[i] == 0){
+                    for (int j = 0; j < 5; j++){
+                        if (answerArr[j].equals("E")){
+                            if (j == 0) {
+                                firstLetter.setText("E");
+                            }else if (j == 1){
+                                secondLetter.setText("E");
+                            }else if (j == 2) {
+                                thirdLetter.setText("E");
+                            }else if (j == 3) {
+                                fourthLetter.setText("E");
+                            }else if (j == 4) {
+                                lastLetter.setText("E");
+                            }
+                            correctAnsEntered += 1;
+                            setCorrectAnsEntered();
+                        }
+                    }
+                    userinput[5] = 1;
+                    setBtn(5);
+                }
+                if (i == 8 && ansCode[i] == 1 && userinput[i] == 0){
+                    for (int j = 0; j < 5; j++){
+                        if (answerArr[j].equals("I")){
+
+                            if (j == 0) {
+                                firstLetter.setText("I");
+                            }else if (j == 1){
+                                secondLetter.setText("I");
+                            }else if (j == 2) {
+                                thirdLetter.setText("I");
+                            }else if (j == 3) {
+                                fourthLetter.setText("I");
+                            }else if (j == 4) {
+                                lastLetter.setText("I");
+                            }
+                            correctAnsEntered += 1;
+                            setCorrectAnsEntered();
+                        }
+                    }
+                    userinput[9] = 1;
+                    setBtn(9);
+                }
+                if (i == 14 && ansCode[i] == 1 && userinput[i] == 0){
+                    for (int j = 0; j < 5; j++){
+                        if (answerArr[j].equals("O")){
+
+                            if (j == 0) {
+                                firstLetter.setText("O");
+                            }else if (j == 1){
+                                secondLetter.setText("O");
+                            }else if (j == 2) {
+                                thirdLetter.setText("O");
+                            }else if (j == 3) {
+                                fourthLetter.setText("O");
+                            }else if (j == 4) {
+                                lastLetter.setText("O");
+                            }
+                            correctAnsEntered += 1;
+                            setCorrectAnsEntered();
+                        }
+                    }
+                    userinput[15] = 1;
+                    setBtn(15);
+                }
+                if (i == 20 && ansCode[i] == 1 && userinput[i] == 0){
+                    for (int j = 0; j < 5; j++){
+                        if (answerArr[j].equals("U")){
+
+                            if (j == 0) {
+                                firstLetter.setText("U");
+                            }else if (j == 1){
+                                secondLetter.setText("U");
+                            }else if (j == 2) {
+                                thirdLetter.setText("U");
+                            }else if (j == 3) {
+                                fourthLetter.setText("U");
+                            }else if (j == 4) {
+                                lastLetter.setText("U");
+                            }
+                            correctAnsEntered += 1;
+                            setCorrectAnsEntered();
+                        }
+                    }
+                    userinput[21] = 1;
+                    setBtn(21);
+                }
+            }
         }
+
 
 
 
     }
 
     public void setCorrectAnsEntered (){
-        if (correctAnsEntered == 5) {
+        if (correctAnsEntered == 5) { //복붙하면 바꿔야하는곳
             Toast.makeText(this, "Game Clear!", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(getApplicationContext(),HangMan_02.class);
             startActivity(intent);
@@ -149,6 +293,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -162,11 +307,15 @@ public class MainActivity extends AppCompatActivity {
         lastLetter= (TextView) findViewById(R.id.letter5);
 
         //initial setting
-        answerArr[0] = "A";
+        answerArr[0] = "A";//복붙하면 바꿔야하는곳
         answerArr[1] = "P";
         answerArr[2] = "P";
         answerArr[3] = "L";
         answerArr[4] = "E";
+
+        ansCode = new int[]{1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+
 
 
 
@@ -178,7 +327,7 @@ public class MainActivity extends AppCompatActivity {
                 hangman.setImageResource(R.drawable.beginning);
                 correctAnsEntered = 0;
                 wrongAnsEntered = 0;
-                firstLetter.setText("");
+                firstLetter.setText("");//복붙하면 바꿔야하는곳
                 secondLetter.setText("");
                 thirdLetter.setText("");
                 fourthLetter.setText("");
@@ -197,7 +346,7 @@ public class MainActivity extends AppCompatActivity {
                     if (answerArr[i].equals("A")){
 
                         if (i == 0) {
-                            firstLetter.setText("A");
+                            firstLetter.setText("A");//복붙하면 바꿔야하는곳
                         }else if (i == 1){
                             secondLetter.setText("A");
                         }else if (i == 2) {
@@ -1258,9 +1407,34 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        hintTV = (TextView) findViewById(R.id.hintTextView);
+        hint = (Button) findViewById(R.id.hintBnt);
+        hint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (wrongAnsEntered != 5){
+                    if (hintCount == 0){
+                        hintTV.setText("Food");
+                        hintCount += 1;
+                    }else if (hintCount == 1) {
+                        setBtn(100);
+                        hintCount += 1;
+                        wrongAnsEntered += 1;
+                        setWrongAnsEntered();
+                    }else if (hintCount == 2){
+                        setBtn(101);
+                        hintCount += 1;
+                        wrongAnsEntered += 1;
+                        setWrongAnsEntered();
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "Hint is not available !", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
         if (savedInstanceState != null){
-            //TextView 다시 세팅
-            //버튼 Disable 시키기
             String letter01 = savedInstanceState.getString("letter01");
             firstLetter.setText(letter01);
             String letter02 = savedInstanceState.getString("letter02");
@@ -1271,10 +1445,14 @@ public class MainActivity extends AppCompatActivity {
             fourthLetter.setText(letter04);
             String letter05 = savedInstanceState.getString("letter05");
             lastLetter.setText(letter05);
-
             correctAnsEntered = savedInstanceState.getInt("correctNum");
             wrongAnsEntered = savedInstanceState.getInt("wrongNum");
             setWrongAnsEntered();
+
+            hintCount = savedInstanceState.getInt("hintCount");
+            String str = savedInstanceState.getString("hintText");
+            hintTV.setText(str);
+
 
             userinput = savedInstanceState.getIntArray("userInput");
             for (int i = 1; i < userinput.length+1; i++){
@@ -1282,8 +1460,6 @@ public class MainActivity extends AppCompatActivity {
                     setBtn(i);
                 }
             }
-
-
         }
 
     }; //End of onCreate
@@ -1299,6 +1475,8 @@ public class MainActivity extends AppCompatActivity {
         outState.putInt("correctNum",correctAnsEntered);
         outState.putInt("wrongNum",wrongAnsEntered);
         outState.putIntArray("userInput",userinput);
+        outState.putString("hintText", hintTV.getText().toString());
+        outState.putInt("hintCount",hintCount);
 
 
     }
