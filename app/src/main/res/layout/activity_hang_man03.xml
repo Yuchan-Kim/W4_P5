@@ -2,25 +2,25 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!-- Game_Layout (Inner lay out) -->
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/hangman02_layout"
+        android:id="@+id/hangman03_layout"
         android:layout_width="327dp"
         android:layout_height="367dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="17dp"
-        app:layout_constraintBottom_toTopOf="@+id/alphabetScrollView2"
+        app:layout_constraintBottom_toTopOf="@+id/alphabetScrollView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/hangman02_view"
+            android:id="@+id/hangman03_view"
             android:layout_width="285dp"
             android:layout_height="194dp"
             android:layout_marginStart="20dp"
@@ -31,11 +31,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
         <TextView
-            android:id="@+id/letter12"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="72dp"
+            android:id="@+id/letter13"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="48dp"
             android:layout_marginTop="232dp"
             android:gravity="center"
             android:textAllCaps="true"
@@ -44,13 +45,13 @@
             app:autoSizeMaxTextSize="40sp"
             app:autoSizeMinTextSize="35dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/hangman02_view" />
+            app:layout_constraintTop_toTopOf="@id/hangman03_view" />
 
         <TextView
-            android:id="@+id/letter22"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="60dp"
+            android:id="@+id/letter23"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="232dp"
             android:gravity="center"
             android:textAllCaps="true"
@@ -58,14 +59,14 @@
             android:textStyle="bold"
             app:autoSizeMaxTextSize="40sp"
             app:autoSizeMinTextSize="35dp"
-            app:layout_constraintStart_toStartOf="@id/letter12"
-            app:layout_constraintTop_toTopOf="@id/hangman02_view" />
+            app:layout_constraintStart_toStartOf="@id/letter13"
+            app:layout_constraintTop_toTopOf="@id/hangman03_view" />
 
         <TextView
-            android:id="@+id/letter32"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="60dp"
+            android:id="@+id/letter33"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="232dp"
             android:gravity="center"
             android:textAllCaps="true"
@@ -73,9 +74,53 @@
             android:textStyle="bold"
             app:autoSizeMaxTextSize="40sp"
             app:autoSizeMinTextSize="35dp"
-            app:layout_constraintStart_toStartOf="@id/letter22"
-            app:layout_constraintTop_toTopOf="@id/hangman02_view" />
+            app:layout_constraintStart_toStartOf="@id/letter23"
+            app:layout_constraintTop_toTopOf="@id/hangman03_view" />
 
+        <TextView
+            android:id="@+id/letter43"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="232dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="40sp"
+            app:autoSizeMinTextSize="35dp"
+            app:layout_constraintStart_toStartOf="@id/letter23"
+            app:layout_constraintTop_toTopOf="@id/hangman03_view" />
+
+        <TextView
+            android:id="@+id/letter53"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="232dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="40sp"
+            app:autoSizeMinTextSize="35dp"
+            app:layout_constraintStart_toStartOf="@id/letter23"
+            app:layout_constraintTop_toTopOf="@id/hangman03_view" />
+
+        <TextView
+            android:id="@+id/letter63"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="232dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="40sp"
+            app:autoSizeMinTextSize="35dp"
+            app:layout_constraintStart_toStartOf="@id/letter23"
+            app:layout_constraintTop_toTopOf="@id/hangman03_view" />
 
         <TextView
             android:id="@+id/explainLabel"
@@ -92,20 +137,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/hangman02_view" />
+            app:layout_constraintTop_toTopOf="@id/hangman03_view" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <HorizontalScrollView
-        android:id="@+id/alphabetScrollView2"
+        android:id="@+id/alphabetScrollView3"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_marginTop="384dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/hangman02_layout">
+        app:layout_constraintTop_toTopOf="@id/hangman03_layout">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -113,7 +158,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/alphabetA2"
+                android:id="@+id/alphabetA3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="A">
@@ -121,7 +166,7 @@
             </Button>
 
             <Button
-                android:id="@+id/alphabetB2"
+                android:id="@+id/alphabetB3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -130,7 +175,7 @@
             </Button>
 
             <Button
-                android:id="@+id/alphabetC2"
+                android:id="@+id/alphabetC3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -139,7 +184,7 @@
             </Button>
 
             <Button
-                android:id="@+id/alphabetD2"
+                android:id="@+id/alphabetD3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -148,7 +193,7 @@
             </Button>
 
             <Button
-                android:id="@+id/alphabetE2"
+                android:id="@+id/alphabetE3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -157,7 +202,7 @@
             </Button>
 
             <Button
-                android:id="@+id/alphabetF2"
+                android:id="@+id/alphabetF3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -166,7 +211,7 @@
             </Button>
 
             <Button
-                android:id="@+id/alphabetG2"
+                android:id="@+id/alphabetG3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -175,7 +220,7 @@
             </Button>
 
             <Button
-                android:id="@+id/alphabetH2"
+                android:id="@+id/alphabetH3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -184,7 +229,7 @@
             </Button>
 
             <Button
-                android:id="@+id/alphabetI2"
+                android:id="@+id/alphabetI3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -193,7 +238,7 @@
             </Button>
 
             <Button
-                android:id="@+id/alphabetJ2"
+                android:id="@+id/alphabetJ3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -202,7 +247,7 @@
             </Button>
 
             <Button
-                android:id="@+id/alphabetK2"
+                android:id="@+id/alphabetK3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -211,7 +256,7 @@
             </Button>
 
             <Button
-                android:id="@+id/alphabetL2"
+                android:id="@+id/alphabetL3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -220,7 +265,7 @@
             </Button>
 
             <Button
-                android:id="@+id/alphabetM2"
+                android:id="@+id/alphabetM3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -229,7 +274,7 @@
             </Button>
 
             <Button
-                android:id="@+id/alphabetN2"
+                android:id="@+id/alphabetN3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -238,7 +283,7 @@
             </Button>
 
             <Button
-                android:id="@+id/alphabetO2"
+                android:id="@+id/alphabetO3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -247,7 +292,7 @@
             </Button>
 
             <Button
-                android:id="@+id/alphabetP2"
+                android:id="@+id/alphabetP3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -256,7 +301,7 @@
             </Button>
 
             <Button
-                android:id="@+id/alphabetQ2"
+                android:id="@+id/alphabetQ3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -265,7 +310,7 @@
             </Button>
 
             <Button
-                android:id="@+id/alphabetR2"
+                android:id="@+id/alphabetR3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -274,7 +319,7 @@
             </Button>
 
             <Button
-                android:id="@+id/alphabetS2"
+                android:id="@+id/alphabetS3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -283,7 +328,7 @@
             </Button>
 
             <Button
-                android:id="@+id/alphabetT2"
+                android:id="@+id/alphabetT3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -292,7 +337,7 @@
             </Button>
 
             <Button
-                android:id="@+id/alphabetU2"
+                android:id="@+id/alphabetU3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -301,7 +346,7 @@
             </Button>
 
             <Button
-                android:id="@+id/alphabetV2"
+                android:id="@+id/alphabetV3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -310,7 +355,7 @@
             </Button>
 
             <Button
-                android:id="@+id/alphabetW2"
+                android:id="@+id/alphabetW3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -319,7 +364,7 @@
             </Button>
 
             <Button
-                android:id="@+id/alphabetX2"
+                android:id="@+id/alphabetX3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -328,7 +373,7 @@
             </Button>
 
             <Button
-                android:id="@+id/alphabetY2"
+                android:id="@+id/alphabetY3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -337,7 +382,7 @@
             </Button>
 
             <Button
-                android:id="@+id/alphabetZ2"
+                android:id="@+id/alphabetZ3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -349,7 +394,7 @@
     </HorizontalScrollView>
 
     <Button
-        android:id="@+id/resetBnt2"
+        android:id="@+id/resetBnt3"
         android:layout_width="199dp"
         android:layout_height="40dp"
         android:layout_marginStart="98dp"
@@ -358,17 +403,17 @@
         android:text="Reset"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/hangman02_layout" />
+        app:layout_constraintTop_toTopOf="@id/hangman03_layout" />
 
     <Button
-        android:id="@+id/hintBnt2"
+        android:id="@+id/hintBnt3"
         android:layout_width="1dp"
         android:layout_height="1dp"
         tools:layout_editor_absoluteX="73dp"
         tools:layout_editor_absoluteY="640dp" />
 
     <TextView
-        android:id="@+id/hintTextView2"
+        android:id="@+id/hintTextView3"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:gravity="center"
