@@ -29,12 +29,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     String[] answerArr = new String[5];
+    int[] userinput = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     int correctAnsEntered = 0;
     int wrongAnsEntered = 0;
     boolean fixCheck = false;
 
-    public void setAllChange (Boolean up){
-        if (up){
+    public void setBtn (int command){
+        if (command == 0) {
             alpA.setEnabled(true);
             alpB.setEnabled(true);
             alpC.setEnabled(true);
@@ -61,13 +62,70 @@ public class MainActivity extends AppCompatActivity {
             alpX.setEnabled(true);
             alpY.setEnabled(true);
             alpZ.setEnabled(true);
+        }else if (command == 1) {
+            alpA.setEnabled(false);
+        }else if (command == 2) {
+            alpB.setEnabled(false);
+        }else if (command == 3) {
+            alpC.setEnabled(false);
+        }else if (command == 4) {
+            alpD.setEnabled(false);
+        }else if (command == 5) {
+            alpE.setEnabled(false);
+        }else if (command == 6) {
+            alpF.setEnabled(false);
+        }else if (command == 7) {
+            alpG.setEnabled(false);
+        }else if (command == 8) {
+            alpH.setEnabled(false);
+        }else if (command == 9) {
+            alpI.setEnabled(false);
+        }else if (command == 10) {
+            alpJ.setEnabled(false);
+        }else if (command == 11) {
+            alpK.setEnabled(false);
+        }else if (command == 12) {
+            alpL.setEnabled(false);
+        }else if (command == 13) {
+            alpM.setEnabled(false);
+        }else if (command == 14) {
+            alpN.setEnabled(false);
+        }else if (command == 15) {
+            alpO.setEnabled(false);
+        }else if (command == 16) {
+            alpP.setEnabled(false);
+        }else if (command == 17) {
+            alpQ.setEnabled(false);
+        }else if (command == 18) {
+            alpR.setEnabled(false);
+        }else if (command == 19) {
+            alpS.setEnabled(false);
+        }else if (command == 20) {
+            alpT.setEnabled(false);
+        }else if (command == 21) {
+            alpU.setEnabled(false);
+        }else if (command == 22) {
+            alpV.setEnabled(false);
+        }else if (command == 23) {
+            alpW.setEnabled(false);
+        }else if (command == 24) {
+            alpX.setEnabled(false);
+        }else if (command == 25) {
+            alpY.setEnabled(false);
+        }else if (command == 26) {
+            alpZ.setEnabled(false);
         }
+
+
+
     }
 
     public void setCorrectAnsEntered (){
         if (correctAnsEntered == 5) {
             Toast.makeText(this, "Game Clear!", Toast.LENGTH_SHORT).show();
-            //Move onto next page
+            Intent intent = new Intent(getApplicationContext(),HangMan_02.class);
+            startActivity(intent);
+            setBtn(0);
         }
     }
 
@@ -83,18 +141,11 @@ public class MainActivity extends AppCompatActivity {
             hangman.setImageResource(R.drawable.fifth);
         }else if (wrongAnsEntered == 5){
             hangman.setImageResource(R.drawable.sixth);
-        }else if (wrongAnsEntered <= 6){
+        }else if (wrongAnsEntered >= 6){
             hangman.setImageResource(R.drawable.seventh);
-            Toast.makeText(getApplicationContext(), "Game Failed! Press Reset button.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Game Failed! Press Reset button.", Toast.LENGTH_LONG).show();
+        }else {
             hangman.setImageResource(R.drawable.beginning);
-            correctAnsEntered = 0;
-            wrongAnsEntered = 0;
-            firstLetter.setText("");
-            secondLetter.setText("");
-            thirdLetter.setText("");
-            fourthLetter.setText("");
-            lastLetter.setText("");
-            setAllChange(true);
         }
     }
 
@@ -118,6 +169,8 @@ public class MainActivity extends AppCompatActivity {
         answerArr[4] = "E";
 
 
+
+
         reset = (Button) findViewById(R.id.resetBnt);
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
                 thirdLetter.setText("");
                 fourthLetter.setText("");
                 lastLetter.setText("");
-                setAllChange(true);
+                setBtn(0);
             }
         });
 
@@ -169,8 +222,8 @@ public class MainActivity extends AppCompatActivity {
                     wrongAnsEntered += 1;
                     setWrongAnsEntered();
                 }
-
-                alpA.setEnabled(false);
+                userinput[0] = 1;
+                setBtn(1);
             }
         });
 
@@ -209,8 +262,8 @@ public class MainActivity extends AppCompatActivity {
                     wrongAnsEntered += 1;
                     setWrongAnsEntered();
                 }
-
-                alpB.setEnabled(false);
+                userinput[1] = 1;
+                setBtn(2);
             }
         });
 
@@ -249,8 +302,8 @@ public class MainActivity extends AppCompatActivity {
                     wrongAnsEntered += 1;
                     setWrongAnsEntered();
                 }
-
-                alpC.setEnabled(false);
+                userinput[2] = 1;
+                setBtn(3);
 
             }
         });
@@ -292,8 +345,8 @@ public class MainActivity extends AppCompatActivity {
                 }
 
 
-
-                alpD.setEnabled(false);
+                userinput[3] = 1;
+                setBtn(4);
 
             }
         });
@@ -334,9 +387,9 @@ public class MainActivity extends AppCompatActivity {
                     setWrongAnsEntered();
                 }
 
+                userinput[4] = 1;
 
-
-                alpE.setEnabled(false);
+                setBtn(5);
 
             }
         });
@@ -376,8 +429,8 @@ public class MainActivity extends AppCompatActivity {
                     wrongAnsEntered += 1;
                     setWrongAnsEntered();
                 }
-
-                alpF.setEnabled(false);
+                userinput[5] = 1;
+                setBtn(6);
 
             }
         });
@@ -417,8 +470,8 @@ public class MainActivity extends AppCompatActivity {
                     wrongAnsEntered += 1;
                     setWrongAnsEntered();
                 }
-
-                alpG.setEnabled(false);
+                userinput[6] = 1;
+                setBtn(7);
 
             }
         });
@@ -458,8 +511,8 @@ public class MainActivity extends AppCompatActivity {
                     wrongAnsEntered += 1;
                     setWrongAnsEntered();
                 }
-
-                alpH.setEnabled(false);
+                userinput[7] = 1;
+                setBtn(8);
 
             }
         });
@@ -499,8 +552,8 @@ public class MainActivity extends AppCompatActivity {
                     wrongAnsEntered += 1;
                     setWrongAnsEntered();
                 }
-
-                alpI.setEnabled(false);
+                userinput[8] = 1;
+                setBtn(9);
 
             }
         });
@@ -540,8 +593,8 @@ public class MainActivity extends AppCompatActivity {
                     wrongAnsEntered += 1;
                     setWrongAnsEntered();
                 }
-
-                alpJ.setEnabled(false);
+                userinput[9] = 1;
+                setBtn(10);
 
             }
         });
@@ -581,8 +634,8 @@ public class MainActivity extends AppCompatActivity {
                     wrongAnsEntered += 1;
                     setWrongAnsEntered();
                 }
-
-                alpK.setEnabled(false);
+                userinput[10] = 1;
+                setBtn(11);
 
             }
         });
@@ -622,8 +675,8 @@ public class MainActivity extends AppCompatActivity {
                     wrongAnsEntered += 1;
                     setWrongAnsEntered();
                 }
-
-                alpL.setEnabled(false);
+                userinput[11] = 1;
+                setBtn(12);
 
             }
         });
@@ -663,8 +716,8 @@ public class MainActivity extends AppCompatActivity {
                     wrongAnsEntered += 1;
                     setWrongAnsEntered();
                 }
-
-                alpM.setEnabled(false);
+                userinput[12] = 1;
+                setBtn(13);
 
             }
         });
@@ -704,8 +757,8 @@ public class MainActivity extends AppCompatActivity {
                     wrongAnsEntered += 1;
                     setWrongAnsEntered();
                 }
-
-                alpN.setEnabled(false);
+                userinput[13] = 1;
+                setBtn(14);
 
             }
         });
@@ -745,8 +798,8 @@ public class MainActivity extends AppCompatActivity {
                     wrongAnsEntered += 1;
                     setWrongAnsEntered();
                 }
-
-                alpO.setEnabled(false);
+                userinput[14] = 1;
+                setBtn(15);
 
             }
         });
@@ -786,8 +839,8 @@ public class MainActivity extends AppCompatActivity {
                     wrongAnsEntered += 1;
                     setWrongAnsEntered();
                 }
-
-                alpP.setEnabled(false);
+                userinput[15] = 1;
+                setBtn(16);
 
             }
         });
@@ -829,8 +882,8 @@ public class MainActivity extends AppCompatActivity {
                 }
 
 
-
-                alpQ.setEnabled(false);
+                userinput[16] = 1;
+                setBtn(17);
 
             }
         });
@@ -870,8 +923,8 @@ public class MainActivity extends AppCompatActivity {
                     wrongAnsEntered += 1;
                     setWrongAnsEntered();
                 }
-
-                alpR.setEnabled(false);
+                userinput[17] = 1;
+                setBtn(18);
 
             }
         });
@@ -911,8 +964,8 @@ public class MainActivity extends AppCompatActivity {
                     wrongAnsEntered += 1;
                     setWrongAnsEntered();
                 }
-
-                alpS.setEnabled(false);
+                userinput[18] = 1;
+                setBtn(19);
 
             }
         });
@@ -952,8 +1005,8 @@ public class MainActivity extends AppCompatActivity {
                     wrongAnsEntered += 1;
                     setWrongAnsEntered();
                 }
-
-                alpT.setEnabled(false);
+                userinput[19] = 1;
+                setBtn(20);
 
             }
         });
@@ -993,8 +1046,8 @@ public class MainActivity extends AppCompatActivity {
                     wrongAnsEntered += 1;
                     setWrongAnsEntered();
                 }
-
-                alpU.setEnabled(false);
+                userinput[20] = 1;
+                setBtn(21);
 
             }
         });
@@ -1034,8 +1087,8 @@ public class MainActivity extends AppCompatActivity {
                     wrongAnsEntered += 1;
                     setWrongAnsEntered();
                 }
-
-                alpV.setEnabled(false);
+                userinput[21] = 1;
+                setBtn(22);
 
             }
         });
@@ -1075,49 +1128,8 @@ public class MainActivity extends AppCompatActivity {
                     wrongAnsEntered += 1;
                     setWrongAnsEntered();
                 }
-
-                alpW.setEnabled(false);
-
-            }
-        });
-
-
-        alpY = (Button) findViewById(R.id.alphabetY);
-        alpY.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Count number of the same alphabet occurred.
-                for (int i = 0; i <5; i++){
-                    if (answerArr[i].equals("Y")){
-
-                        if (i == 0) {
-                            firstLetter.setText("Y");
-                        }else if (i == 1){
-                            secondLetter.setText("Y");
-                        }else if (i == 2) {
-                            thirdLetter.setText("Y");
-                        }else if (i == 3) {
-                            fourthLetter.setText("Y");
-                        }else if (i == 4) {
-                            lastLetter.setText("Y");
-                        }
-
-                        fixCheck = true;
-                        correctAnsEntered += 1;
-                    }
-                }
-
-                if (fixCheck){
-                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
-                    fixCheck = false;
-                    setCorrectAnsEntered();
-                }else {
-                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
-                    wrongAnsEntered += 1;
-                    setWrongAnsEntered();
-                }
-
-                alpY.setEnabled(false);
+                userinput[22] = 1;
+                setBtn(23);
 
             }
         });
@@ -1157,8 +1169,49 @@ public class MainActivity extends AppCompatActivity {
                     wrongAnsEntered += 1;
                     setWrongAnsEntered();
                 }
+                userinput[23] = 1;
+                setBtn(24);
 
-                alpX.setEnabled(false);
+            }
+        });
+
+
+        alpY = (Button) findViewById(R.id.alphabetY);
+        alpY.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Count number of the same alphabet occurred.
+                for (int i = 0; i <5; i++){
+                    if (answerArr[i].equals("Y")){
+
+                        if (i == 0) {
+                            firstLetter.setText("Y");
+                        }else if (i == 1){
+                            secondLetter.setText("Y");
+                        }else if (i == 2) {
+                            thirdLetter.setText("Y");
+                        }else if (i == 3) {
+                            fourthLetter.setText("Y");
+                        }else if (i == 4) {
+                            lastLetter.setText("Y");
+                        }
+
+                        fixCheck = true;
+                        correctAnsEntered += 1;
+                    }
+                }
+
+                if (fixCheck){
+                    Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
+                    fixCheck = false;
+                    setCorrectAnsEntered();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Wrong", Toast.LENGTH_SHORT).show();
+                    wrongAnsEntered += 1;
+                    setWrongAnsEntered();
+                }
+                userinput[24] = 1;
+                setBtn(25);
 
             }
         });
@@ -1198,13 +1251,57 @@ public class MainActivity extends AppCompatActivity {
                     wrongAnsEntered += 1;
                     setWrongAnsEntered();
                 }
-
-                alpZ.setEnabled(false);
+                userinput[25] = 1;
+                setBtn(26);
 
             }
+
         });
 
+        if (savedInstanceState != null){
+            //TextView 다시 세팅
+            //버튼 Disable 시키기
+            String letter01 = savedInstanceState.getString("letter01");
+            firstLetter.setText(letter01);
+            String letter02 = savedInstanceState.getString("letter02");
+            secondLetter.setText(letter02);
+            String letter03 = savedInstanceState.getString("letter03");
+            thirdLetter.setText(letter03);
+            String letter04 = savedInstanceState.getString("letter04");
+            fourthLetter.setText(letter04);
+            String letter05 = savedInstanceState.getString("letter05");
+            lastLetter.setText(letter05);
+
+            correctAnsEntered = savedInstanceState.getInt("correctNum");
+            wrongAnsEntered = savedInstanceState.getInt("wrongNum");
+            setWrongAnsEntered();
+
+            userinput = savedInstanceState.getIntArray("userInput");
+            for (int i = 1; i < userinput.length+1; i++){
+                if (userinput[i-1] == 1){
+                    setBtn(i);
+                }
+            }
+
+
+        }
+
     }; //End of onCreate
+
+    @Override
+    protected  void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("letter01", firstLetter.getText().toString());
+        outState.putString("letter02", secondLetter.getText().toString());
+        outState.putString("letter03", thirdLetter.getText().toString());
+        outState.putString("letter04", fourthLetter.getText().toString());
+        outState.putString("letter05", lastLetter.getText().toString());
+        outState.putInt("correctNum",correctAnsEntered);
+        outState.putInt("wrongNum",wrongAnsEntered);
+        outState.putIntArray("userInput",userinput);
+
+
+    }
 
 
 } // End of Class

@@ -1,6 +1,461 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout_land"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="-115dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Game_Layout (Inner lay out) -->
+
+    <HorizontalScrollView
+        android:id="@+id/alphabetScrollView"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="200dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="269dp">
+
+            <Button
+                android:id="@+id/alphabetA"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="A"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="269dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/alphabetB"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="B"
+                tools:layout_editor_absoluteX="88dp"
+                tools:layout_editor_absoluteY="269dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/alphabetC"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="C"
+                tools:layout_editor_absoluteX="176dp"
+                tools:layout_editor_absoluteY="269dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/alphabetD"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="D"
+                tools:layout_editor_absoluteX="264dp"
+                tools:layout_editor_absoluteY="269dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/alphabetE"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="E"
+                tools:layout_editor_absoluteX="352dp"
+                tools:layout_editor_absoluteY="269dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/alphabetF"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="F"
+                tools:layout_editor_absoluteX="440dp"
+                tools:layout_editor_absoluteY="269dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/alphabetG"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="G"
+                tools:layout_editor_absoluteX="528dp"
+                tools:layout_editor_absoluteY="269dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/alphabetH"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="H"
+                tools:layout_editor_absoluteX="616dp"
+                tools:layout_editor_absoluteY="269dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/alphabetI"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="I"
+                tools:layout_editor_absoluteX="704dp"
+                tools:layout_editor_absoluteY="269dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/alphabetJ"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="J"
+                tools:layout_editor_absoluteX="792dp"
+                tools:layout_editor_absoluteY="269dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/alphabetK"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="K"
+                tools:layout_editor_absoluteX="880dp"
+                tools:layout_editor_absoluteY="269dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/alphabetL"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="L"
+                tools:layout_editor_absoluteX="968dp"
+                tools:layout_editor_absoluteY="269dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/alphabetM"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="M"
+                tools:layout_editor_absoluteX="1056dp"
+                tools:layout_editor_absoluteY="269dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/alphabetN"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="N"
+                tools:layout_editor_absoluteX="1144dp"
+                tools:layout_editor_absoluteY="269dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/alphabetO"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="O"
+                tools:layout_editor_absoluteX="1232dp"
+                tools:layout_editor_absoluteY="269dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/alphabetP"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="P"
+                tools:layout_editor_absoluteX="1320dp"
+                tools:layout_editor_absoluteY="269dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/alphabetQ"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Q"
+                tools:layout_editor_absoluteX="1408dp"
+                tools:layout_editor_absoluteY="269dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/alphabetR"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="R"
+                tools:layout_editor_absoluteX="1496dp"
+                tools:layout_editor_absoluteY="269dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/alphabetS"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="S"
+                tools:layout_editor_absoluteX="1584dp"
+                tools:layout_editor_absoluteY="269dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/alphabetT"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="T"
+                tools:layout_editor_absoluteX="1672dp"
+                tools:layout_editor_absoluteY="269dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/alphabetU"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="U"
+                tools:layout_editor_absoluteX="1760dp"
+                tools:layout_editor_absoluteY="269dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/alphabetV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="V"
+                tools:layout_editor_absoluteX="1848dp"
+                tools:layout_editor_absoluteY="269dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/alphabetW"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="W"
+                tools:layout_editor_absoluteX="1936dp"
+                tools:layout_editor_absoluteY="269dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/alphabetX"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="X"
+                tools:layout_editor_absoluteX="2024dp"
+                tools:layout_editor_absoluteY="269dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/alphabetY"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Y"
+                tools:layout_editor_absoluteX="2112dp"
+                tools:layout_editor_absoluteY="269dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/alphabetZ"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Z"
+                tools:layout_editor_absoluteX="2200dp"
+                tools:layout_editor_absoluteY="269dp">
+
+            </Button>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <Button
+        android:id="@+id/resetBnt"
+        android:layout_width="199dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="452dp"
+        android:text="Reset"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/explainLabel" />
+
+    <TextView
+        android:id="@+id/explainLabel"
+        android:layout_width="323dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Choose a letter"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/hangman_layout"
+        android:layout_width="414dp"
+        android:layout_height="279dp"
+        android:layout_marginStart="372dp"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/hangman_view"
+            android:layout_width="285dp"
+            android:layout_height="194dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="112dp"
+            android:src="@drawable/beginning"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/letter1"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="200dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="40sp"
+            app:autoSizeMinTextSize="35dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/hangman_view" />
+
+        <TextView
+            android:id="@+id/letter2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="200dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="40sp"
+            app:autoSizeMinTextSize="35dp"
+            app:layout_constraintStart_toStartOf="@id/letter1"
+            app:layout_constraintTop_toTopOf="@id/hangman_view" />
+
+        <TextView
+            android:id="@+id/letter3"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="200dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="40sp"
+            app:autoSizeMinTextSize="35dp"
+            app:layout_constraintStart_toStartOf="@id/letter2"
+            app:layout_constraintTop_toTopOf="@id/hangman_view" />
+
+        <TextView
+            android:id="@+id/letter4"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="200dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="40sp"
+            app:autoSizeMinTextSize="35dp"
+            app:layout_constraintStart_toStartOf="@id/letter3"
+            app:layout_constraintTop_toTopOf="@id/hangman_view" />
+
+        <TextView
+            android:id="@+id/letter5"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="200dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="40sp"
+            app:autoSizeMinTextSize="35dp"
+            app:layout_constraintStart_toStartOf="@id/letter4"
+            app:layout_constraintTop_toTopOf="@id/hangman_view" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="159dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="44dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/hangman_layout"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="101dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="124dp"
+        android:text="Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout> <!-- End of Game_layout -->
