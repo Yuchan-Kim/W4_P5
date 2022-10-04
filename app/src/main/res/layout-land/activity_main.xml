@@ -17,7 +17,7 @@
         android:layout_width="350dp"
         android:layout_height="70dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="205dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -316,16 +316,6 @@
         </LinearLayout>
     </HorizontalScrollView>
 
-    <Button
-        android:id="@+id/resetBnt"
-        android:layout_width="199dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="452dp"
-        android:text="Reset"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/explainLabel" />
-
     <TextView
         android:id="@+id/explainLabel"
         android:layout_width="323dp"
@@ -448,6 +438,15 @@
         app:layout_constraintEnd_toStartOf="@+id/hangman_layout"
         app:layout_constraintStart_toEndOf="@+id/hintBnt"
         app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/resetBnt"
+        android:layout_width="199dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="452dp"
+        android:text="Reset"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/explainLabel" />
 
     <Button
         android:id="@+id/hintBnt"

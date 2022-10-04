@@ -267,9 +267,19 @@ public class MainActivity extends AppCompatActivity {
     public void setCorrectAnsEntered (){
         if (correctAnsEntered == 5) { //복붙하면 바꿔야하는곳
             Toast.makeText(this, "Game Clear!", Toast.LENGTH_SHORT).show();
+            hangman.setImageResource(R.drawable.beginning);
+            correctAnsEntered = 0;
+            wrongAnsEntered = 0;
+            firstLetter.setText("");//복붙하면 바꿔야하는곳
+            secondLetter.setText("");
+            thirdLetter.setText("");
+            fourthLetter.setText("");
+            lastLetter.setText("");
+            setBtn(0);
             Intent intent = new Intent(getApplicationContext(),HangMan_02.class);
             startActivity(intent);
-            setBtn(0);
+
+
         }
     }
 

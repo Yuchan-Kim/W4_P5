@@ -236,9 +236,17 @@ public class HangMan_02 extends AppCompatActivity {
     public void setCorrectAnsEntered (){
         if (correctAnsEntered == 3) { //복붙하면 바꿔야하는곳
             Toast.makeText(this, "Game Clear!", Toast.LENGTH_SHORT).show();
+            correctAnsEntered = 0;
+            wrongAnsEntered = 0;
+            firstLetter.setText("");
+            secondLetter.setText("");
+            thirdLetter.setText("");
+            setBtn(0);
+
+
             Intent intent = new Intent(getApplicationContext(),HangMan_03.class);
             startActivity(intent);
-            setBtn(0);
+
         }
     }
 

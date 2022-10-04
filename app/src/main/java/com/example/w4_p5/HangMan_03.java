@@ -273,16 +273,25 @@ public class HangMan_03 extends AppCompatActivity {
     }
 
     public void setCorrectAnsEntered (){
-        if (correctAnsEntered == 6) { //복붙하면 바꿔야하는곳
+        if (correctAnsEntered == 6) {
             Toast.makeText(this, "Game Clear!", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(getApplicationContext(),HangMan_02.class);
-            startActivity(intent);
+            correctAnsEntered = 0;
+            wrongAnsEntered = 0;
+            firstLetter.setText("");
+            secondLetter.setText("");
+            thirdLetter.setText("");
+            fourthLetter.setText("");
+            fifthLetter.setText("");
+            lastLetter.setText("");
             setBtn(0);
+            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(intent);
+
         }
     }
 
     public void setWrongAnsEntered() {
-        hangman = (ImageView) findViewById(R.id.hangman_view);
+        hangman = (ImageView) findViewById(R.id.hangman03_view);
         if (wrongAnsEntered == 1) {
             hangman.setImageResource(R.drawable.second);
         }else if (wrongAnsEntered == 2){
@@ -305,15 +314,15 @@ public class HangMan_03 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_hang_man03);
 
         hangman = (ImageView) findViewById(R.id.hangman03_view);
         firstLetter= (TextView) findViewById(R.id.letter13);
         secondLetter= (TextView) findViewById(R.id.letter23);
         thirdLetter= (TextView) findViewById(R.id.letter33);
         fourthLetter= (TextView) findViewById(R.id.letter43);
-        lastLetter= (TextView) findViewById(R.id.letter53);
-        fifthLetter = (TextView) findViewById(R.id.letter63);
+        lastLetter= (TextView) findViewById(R.id.letter63);
+        fifthLetter = (TextView) findViewById(R.id.letter53);
 
         //initial setting
         answerArr[0] = "A";//복붙하면 바꿔야하는곳
@@ -330,7 +339,7 @@ public class HangMan_03 extends AppCompatActivity {
 
 
 
-        reset = (Button) findViewById(R.id.resetBnt);
+        reset = (Button) findViewById(R.id.resetBnt3);
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -348,7 +357,7 @@ public class HangMan_03 extends AppCompatActivity {
         });
 
         //Alphabets
-        alpA = (Button) findViewById(R.id.alphabetA);
+        alpA = (Button) findViewById(R.id.alphabetA3);
         alpA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -365,8 +374,10 @@ public class HangMan_03 extends AppCompatActivity {
                         }else if (i == 3) {
                             fourthLetter.setText("A");
                         }else if (i == 4) {
+                            fifthLetter.setText("A");
+                        }else if (i == 5) {
                             lastLetter.setText("A");
-                        }else if (i == 5)
+                        }
 
                         fixCheck = true;
                         correctAnsEntered += 1;
@@ -388,12 +399,12 @@ public class HangMan_03 extends AppCompatActivity {
         });
 
 
-        alpB = (Button) findViewById(R.id.alphabetB);
+        alpB = (Button) findViewById(R.id.alphabetB3);
         alpB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i < 5; i++){
+                for (int i = 0; i < 6; i++){
                     if (answerArr[i].equals("B")){
 
                         if (i == 0) {
@@ -405,6 +416,8 @@ public class HangMan_03 extends AppCompatActivity {
                         }else if (i == 3) {
                             fourthLetter.setText("B");
                         }else if (i == 4) {
+                            fifthLetter.setText("B");
+                        }else if (i == 5) {
                             lastLetter.setText("B");
                         }
 
@@ -428,12 +441,12 @@ public class HangMan_03 extends AppCompatActivity {
         });
 
 
-        alpC = (Button) findViewById(R.id.alphabetC);
+        alpC = (Button) findViewById(R.id.alphabetC3);
         alpC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <5; i++){
+                for (int i = 0; i <6; i++){
                     if (answerArr[i].equals("C")){
 
                         if (i == 0) {
@@ -445,6 +458,8 @@ public class HangMan_03 extends AppCompatActivity {
                         }else if (i == 3) {
                             fourthLetter.setText("C");
                         }else if (i == 4) {
+                            fifthLetter.setText("C");
+                        }else if (i == 5) {
                             lastLetter.setText("C");
                         }
 
@@ -469,12 +484,12 @@ public class HangMan_03 extends AppCompatActivity {
         });
 
 
-        alpD = (Button) findViewById(R.id.alphabetD);
+        alpD = (Button) findViewById(R.id.alphabetD3);
         alpD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <5; i++){
+                for (int i = 0; i <6; i++){
                     if (answerArr[i].equals("D")){
 
                         if (i == 0) {
@@ -486,6 +501,8 @@ public class HangMan_03 extends AppCompatActivity {
                         }else if (i == 3) {
                             fourthLetter.setText("D");
                         }else if (i == 4) {
+                            fifthLetter.setText("D");
+                        }else if (i == 5) {
                             lastLetter.setText("D");
                         }
 
@@ -512,12 +529,12 @@ public class HangMan_03 extends AppCompatActivity {
         });
 
 
-        alpE = (Button) findViewById(R.id.alphabetE);
+        alpE = (Button) findViewById(R.id.alphabetE3);
         alpE.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <5; i++){
+                for (int i = 0; i <6; i++){
                     if (answerArr[i].equals("E")){
 
                         if (i == 0) {
@@ -529,6 +546,8 @@ public class HangMan_03 extends AppCompatActivity {
                         }else if (i == 3) {
                             fourthLetter.setText("E");
                         }else if (i == 4) {
+                            fifthLetter.setText("E");
+                        }else if (i == 5) {
                             lastLetter.setText("E");
                         }
 
@@ -555,12 +574,12 @@ public class HangMan_03 extends AppCompatActivity {
         });
 
 
-        alpF = (Button) findViewById(R.id.alphabetF);
+        alpF = (Button) findViewById(R.id.alphabetF3);
         alpF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <5; i++){
+                for (int i = 0; i <6; i++){
                     if (answerArr[i].equals("F")){
 
                         if (i == 0) {
@@ -572,6 +591,8 @@ public class HangMan_03 extends AppCompatActivity {
                         }else if (i == 3) {
                             fourthLetter.setText("F");
                         }else if (i == 4) {
+                            fifthLetter.setText("F");
+                        }else if (i == 5) {
                             lastLetter.setText("F");
                         }
 
@@ -596,12 +617,12 @@ public class HangMan_03 extends AppCompatActivity {
         });
 
 
-        alpG = (Button) findViewById(R.id.alphabetG);
+        alpG = (Button) findViewById(R.id.alphabetG3);
         alpG.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <5; i++){
+                for (int i = 0; i <6; i++){
                     if (answerArr[i].equals("G")){
 
                         if (i == 0) {
@@ -613,6 +634,8 @@ public class HangMan_03 extends AppCompatActivity {
                         }else if (i == 3) {
                             fourthLetter.setText("G");
                         }else if (i == 4) {
+                            fifthLetter.setText("G");
+                        }else if (i == 5) {
                             lastLetter.setText("G");
                         }
 
@@ -637,12 +660,12 @@ public class HangMan_03 extends AppCompatActivity {
         });
 
 
-        alpH = (Button) findViewById(R.id.alphabetH);
+        alpH = (Button) findViewById(R.id.alphabetH3);
         alpH.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <5; i++){
+                for (int i = 0; i <6; i++){
                     if (answerArr[i].equals("H")){
 
                         if (i == 0) {
@@ -654,6 +677,8 @@ public class HangMan_03 extends AppCompatActivity {
                         }else if (i == 3) {
                             fourthLetter.setText("H");
                         }else if (i == 4) {
+                            fifthLetter.setText("H");
+                        }else if (i == 5) {
                             lastLetter.setText("H");
                         }
 
@@ -678,12 +703,12 @@ public class HangMan_03 extends AppCompatActivity {
         });
 
 
-        alpI = (Button) findViewById(R.id.alphabetI);
+        alpI = (Button) findViewById(R.id.alphabetI3);
         alpI.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <5; i++){
+                for (int i = 0; i <6; i++){
                     if (answerArr[i].equals("I")){
 
                         if (i == 0) {
@@ -694,7 +719,9 @@ public class HangMan_03 extends AppCompatActivity {
                             thirdLetter.setText("I");
                         }else if (i == 3) {
                             fourthLetter.setText("I");
-                        }else {
+                        }else if (i == 4) {
+                            fifthLetter.setText("I");
+                        }else if (i == 5) {
                             lastLetter.setText("I");
                         }
 
@@ -719,12 +746,12 @@ public class HangMan_03 extends AppCompatActivity {
         });
 
 
-        alpJ = (Button) findViewById(R.id.alphabetJ);
+        alpJ = (Button) findViewById(R.id.alphabetJ3);
         alpJ.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <5; i++){
+                for (int i = 0; i <6; i++){
                     if (answerArr[i].equals("J")){
 
                         if (i == 0) {
@@ -736,6 +763,8 @@ public class HangMan_03 extends AppCompatActivity {
                         }else if (i == 3) {
                             fourthLetter.setText("J");
                         }else if (i == 4) {
+                            fifthLetter.setText("J");
+                        }else if (i == 5) {
                             lastLetter.setText("J");
                         }
 
@@ -760,12 +789,12 @@ public class HangMan_03 extends AppCompatActivity {
         });
 
 
-        alpK = (Button) findViewById(R.id.alphabetK);
+        alpK = (Button) findViewById(R.id.alphabetK3);
         alpK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <5; i++){
+                for (int i = 0; i <6; i++){
                     if (answerArr[i].equals("K")){
 
                         if (i == 0) {
@@ -777,6 +806,8 @@ public class HangMan_03 extends AppCompatActivity {
                         }else if (i == 3) {
                             fourthLetter.setText("K");
                         }else if (i == 4) {
+                            fifthLetter.setText("K");
+                        }else if (i == 5) {
                             lastLetter.setText("K");
                         }
 
@@ -801,12 +832,12 @@ public class HangMan_03 extends AppCompatActivity {
         });
 
 
-        alpL = (Button) findViewById(R.id.alphabetL);
+        alpL = (Button) findViewById(R.id.alphabetL3);
         alpL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <5; i++){
+                for (int i = 0; i <6; i++){
                     if (answerArr[i].equals("L")){
 
                         if (i == 0) {
@@ -818,6 +849,8 @@ public class HangMan_03 extends AppCompatActivity {
                         }else if (i == 3) {
                             fourthLetter.setText("L");
                         }else if (i == 4) {
+                            fifthLetter.setText("L");
+                        }else if (i == 5) {
                             lastLetter.setText("L");
                         }
 
@@ -842,12 +875,12 @@ public class HangMan_03 extends AppCompatActivity {
         });
 
 
-        alpM = (Button) findViewById(R.id.alphabetM);
+        alpM = (Button) findViewById(R.id.alphabetM3);
         alpM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <5; i++){
+                for (int i = 0; i <6; i++){
                     if (answerArr[i].equals("M")){
 
                         if (i == 0) {
@@ -859,6 +892,8 @@ public class HangMan_03 extends AppCompatActivity {
                         }else if (i == 3) {
                             fourthLetter.setText("M");
                         }else if (i == 4) {
+                            fifthLetter.setText("M");
+                        }else if (i == 5) {
                             lastLetter.setText("M");
                         }
 
@@ -883,12 +918,12 @@ public class HangMan_03 extends AppCompatActivity {
         });
 
 
-        alpN = (Button) findViewById(R.id.alphabetN);
+        alpN = (Button) findViewById(R.id.alphabetN3);
         alpN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <5; i++){
+                for (int i = 0; i <6; i++){
                     if (answerArr[i].equals("N")){
 
                         if (i == 0) {
@@ -900,6 +935,8 @@ public class HangMan_03 extends AppCompatActivity {
                         }else if (i == 3) {
                             fourthLetter.setText("N");
                         }else if (i == 4) {
+                            fifthLetter.setText("N");
+                        }else if (i == 5) {
                             lastLetter.setText("N");
                         }
 
@@ -924,12 +961,12 @@ public class HangMan_03 extends AppCompatActivity {
         });
 
 
-        alpO = (Button) findViewById(R.id.alphabetO);
+        alpO = (Button) findViewById(R.id.alphabetO3);
         alpO.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <5; i++){
+                for (int i = 0; i <6; i++){
                     if (answerArr[i].equals("O")){
 
                         if (i == 0) {
@@ -941,6 +978,8 @@ public class HangMan_03 extends AppCompatActivity {
                         }else if (i == 3) {
                             fourthLetter.setText("O");
                         }else if (i == 4) {
+                            fifthLetter.setText("O");
+                        }else if (i == 5) {
                             lastLetter.setText("O");
                         }
 
@@ -965,12 +1004,12 @@ public class HangMan_03 extends AppCompatActivity {
         });
 
 
-        alpP = (Button) findViewById(R.id.alphabetP);
+        alpP = (Button) findViewById(R.id.alphabetP3);
         alpP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <5; i++){
+                for (int i = 0; i <6; i++){
                     if (answerArr[i].equals("P")){
 
                         if (i == 0) {
@@ -982,6 +1021,8 @@ public class HangMan_03 extends AppCompatActivity {
                         }else if (i == 3) {
                             fourthLetter.setText("P");
                         }else if (i == 4) {
+                            fifthLetter.setText("P");
+                        }else if (i == 5) {
                             lastLetter.setText("P");
                         }
 
@@ -1006,12 +1047,12 @@ public class HangMan_03 extends AppCompatActivity {
         });
 
 
-        alpQ = (Button) findViewById(R.id.alphabetQ);
+        alpQ = (Button) findViewById(R.id.alphabetQ3);
         alpQ.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <5; i++){
+                for (int i = 0; i <6; i++){
                     if (answerArr[i].equals("Q")){
 
                         if (i == 0) {
@@ -1023,6 +1064,8 @@ public class HangMan_03 extends AppCompatActivity {
                         }else if (i == 3) {
                             fourthLetter.setText("Q");
                         }else if (i == 4) {
+                            fifthLetter.setText("Q");
+                        }else if (i == 5) {
                             lastLetter.setText("Q");
                         }
 
@@ -1049,12 +1092,12 @@ public class HangMan_03 extends AppCompatActivity {
         });
 
 
-        alpR = (Button) findViewById(R.id.alphabetR);
+        alpR = (Button) findViewById(R.id.alphabetR3);
         alpR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <5; i++){
+                for (int i = 0; i <6; i++){
                     if (answerArr[i].equals("R")){
 
                         if (i == 0) {
@@ -1066,6 +1109,8 @@ public class HangMan_03 extends AppCompatActivity {
                         }else if (i == 3) {
                             fourthLetter.setText("R");
                         }else if (i == 4) {
+                            fifthLetter.setText("R");
+                        }else if (i == 5) {
                             lastLetter.setText("R");
                         }
 
@@ -1090,12 +1135,12 @@ public class HangMan_03 extends AppCompatActivity {
         });
 
 
-        alpS = (Button) findViewById(R.id.alphabetS);
+        alpS = (Button) findViewById(R.id.alphabetS3);
         alpS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <5; i++){
+                for (int i = 0; i <6; i++){
                     if (answerArr[i].equals("S")){
 
                         if (i == 0) {
@@ -1107,6 +1152,8 @@ public class HangMan_03 extends AppCompatActivity {
                         }else if (i == 3) {
                             fourthLetter.setText("S");
                         }else if (i == 4) {
+                            fifthLetter.setText("S");
+                        }else if (i == 5) {
                             lastLetter.setText("S");
                         }
 
@@ -1131,12 +1178,12 @@ public class HangMan_03 extends AppCompatActivity {
         });
 
 
-        alpT = (Button) findViewById(R.id.alphabetT);
+        alpT = (Button) findViewById(R.id.alphabetT3);
         alpT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <5; i++){
+                for (int i = 0; i <6; i++){
                     if (answerArr[i].equals("T")){
 
                         if (i == 0) {
@@ -1148,6 +1195,8 @@ public class HangMan_03 extends AppCompatActivity {
                         }else if (i == 3) {
                             fourthLetter.setText("T");
                         }else if (i == 4) {
+                            fifthLetter.setText("T");
+                        }else if (i == 5) {
                             lastLetter.setText("T");
                         }
 
@@ -1172,12 +1221,12 @@ public class HangMan_03 extends AppCompatActivity {
         });
 
 
-        alpU = (Button) findViewById(R.id.alphabetU);
+        alpU = (Button) findViewById(R.id.alphabetU3);
         alpU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <5; i++){
+                for (int i = 0; i <6; i++){
                     if (answerArr[i].equals("U")){
 
                         if (i == 0) {
@@ -1189,6 +1238,8 @@ public class HangMan_03 extends AppCompatActivity {
                         }else if (i == 3) {
                             fourthLetter.setText("U");
                         }else if (i == 4) {
+                            fifthLetter.setText("U");
+                        }else if (i == 5) {
                             lastLetter.setText("U");
                         }
 
@@ -1213,12 +1264,12 @@ public class HangMan_03 extends AppCompatActivity {
         });
 
 
-        alpV = (Button) findViewById(R.id.alphabetV);
+        alpV = (Button) findViewById(R.id.alphabetV3);
         alpV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <5; i++){
+                for (int i = 0; i <6; i++){
                     if (answerArr[i].equals("V")){
 
                         if (i == 0) {
@@ -1230,6 +1281,8 @@ public class HangMan_03 extends AppCompatActivity {
                         }else if (i == 3) {
                             fourthLetter.setText("V");
                         }else if (i == 4) {
+                            fifthLetter.setText("V");
+                        }else if (i == 5) {
                             lastLetter.setText("V");
                         }
 
@@ -1254,12 +1307,12 @@ public class HangMan_03 extends AppCompatActivity {
         });
 
 
-        alpW = (Button) findViewById(R.id.alphabetW);
+        alpW = (Button) findViewById(R.id.alphabetW3);
         alpW.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <5; i++){
+                for (int i = 0; i <6; i++){
                     if (answerArr[i].equals("W")){
 
                         if (i == 0) {
@@ -1271,6 +1324,8 @@ public class HangMan_03 extends AppCompatActivity {
                         }else if (i == 3) {
                             fourthLetter.setText("W");
                         }else if (i == 4) {
+                            fifthLetter.setText("W");
+                        }else if (i == 5) {
                             lastLetter.setText("W");
                         }
 
@@ -1295,12 +1350,12 @@ public class HangMan_03 extends AppCompatActivity {
         });
 
 
-        alpX = (Button) findViewById(R.id.alphabetX);
+        alpX = (Button) findViewById(R.id.alphabetX3);
         alpX.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <5; i++){
+                for (int i = 0; i <6; i++){
                     if (answerArr[i].equals("X")){
 
                         if (i == 0) {
@@ -1312,6 +1367,8 @@ public class HangMan_03 extends AppCompatActivity {
                         }else if (i == 3) {
                             fourthLetter.setText("X");
                         }else if (i == 4) {
+                            fifthLetter.setText("X");
+                        }else if (i == 5) {
                             lastLetter.setText("X");
                         }
 
@@ -1336,12 +1393,12 @@ public class HangMan_03 extends AppCompatActivity {
         });
 
 
-        alpY = (Button) findViewById(R.id.alphabetY);
+        alpY = (Button) findViewById(R.id.alphabetY3);
         alpY.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <5; i++){
+                for (int i = 0; i <6; i++){
                     if (answerArr[i].equals("Y")){
 
                         if (i == 0) {
@@ -1353,6 +1410,8 @@ public class HangMan_03 extends AppCompatActivity {
                         }else if (i == 3) {
                             fourthLetter.setText("Y");
                         }else if (i == 4) {
+                            fifthLetter.setText("Y");
+                        }else if (i == 5) {
                             lastLetter.setText("Y");
                         }
 
@@ -1377,12 +1436,12 @@ public class HangMan_03 extends AppCompatActivity {
         });
 
 
-        alpZ = (Button) findViewById(R.id.alphabetZ);
+        alpZ = (Button) findViewById(R.id.alphabetZ3);
         alpZ.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Count number of the same alphabet occurred.
-                for (int i = 0; i <5; i++){
+                for (int i = 0; i <6; i++){
                     if (answerArr[i].equals("Z")){
 
                         if (i == 0) {
@@ -1394,6 +1453,8 @@ public class HangMan_03 extends AppCompatActivity {
                         }else if (i == 3) {
                             fourthLetter.setText("Z");
                         }else if (i == 4) {
+                            fifthLetter.setText("Z");
+                        }else if (i == 5) {
                             lastLetter.setText("Z");
                         }
 
@@ -1418,14 +1479,14 @@ public class HangMan_03 extends AppCompatActivity {
 
         });
 
-        hintTV = (TextView) findViewById(R.id.hintTextView);
-        hint = (Button) findViewById(R.id.hintBnt);
+        hintTV = (TextView) findViewById(R.id.hintTextView3);
+        hint = (Button) findViewById(R.id.hintBnt3);
         hint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (wrongAnsEntered != 5){
                     if (hintCount == 0){
-                        hintTV.setText("Food");
+                        hintTV.setText("Month");
                         hintCount += 1;
                     }else if (hintCount == 1) {
                         setBtn(100);
@@ -1455,7 +1516,9 @@ public class HangMan_03 extends AppCompatActivity {
             String letter04 = savedInstanceState.getString("letter04");
             fourthLetter.setText(letter04);
             String letter05 = savedInstanceState.getString("letter05");
-            lastLetter.setText(letter05);
+            fifthLetter.setText(letter05);
+            String letter06 = savedInstanceState.getString("letter06");
+            lastLetter.setText(letter06);
             correctAnsEntered = savedInstanceState.getInt("correctNum");
             wrongAnsEntered = savedInstanceState.getInt("wrongNum");
             setWrongAnsEntered();
@@ -1482,7 +1545,8 @@ public class HangMan_03 extends AppCompatActivity {
         outState.putString("letter02", secondLetter.getText().toString());
         outState.putString("letter03", thirdLetter.getText().toString());
         outState.putString("letter04", fourthLetter.getText().toString());
-        outState.putString("letter05", lastLetter.getText().toString());
+        outState.putString("letter05", fifthLetter.getText().toString());
+        outState.putString("letter06", lastLetter.getText().toString());
         outState.putInt("correctNum",correctAnsEntered);
         outState.putInt("wrongNum",wrongAnsEntered);
         outState.putIntArray("userInput",userinput);
